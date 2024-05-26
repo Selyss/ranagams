@@ -30,7 +30,7 @@ export function InputOTPControlled() {
   };
 
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 flex flex-col items-center">
       <InputOTP
         maxLength={6}
         pattern={REGEXP_ONLY_CHARS}
