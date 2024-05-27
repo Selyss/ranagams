@@ -7,7 +7,7 @@ export default function Home() {
       <div className="absolute top-2 right-2">
         <ModeToggle />
       </div>
-      <div className="">
+      <div className="mx-auto flex max-w-[980px] justify-center pt-6 pb-4">
         <SearchBox />
       </div>
     </>
