@@ -14,7 +14,7 @@ type AnagramResponse = {
   [word: string]: number;
 };
 
-export function InputOTPControlled() {
+export function SearchBox() {
   const [value, setValue] = React.useState<AnagramResponse | null>(null);
 
   const handleComplete = async (value: string) => {

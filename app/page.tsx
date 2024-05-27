@@ -1,5 +1,5 @@
 import { ModeToggle } from "@/components/mode-toggle";
-import { InputOTPControlled } from "@/components/SearchBox";
+import { SearchBox } from "@/components/SearchBox";
 
 export default function Home() {
   return (
@@ -8,7 +8,7 @@ export default function Home() {
         <ModeToggle />
       </div>
       <div className="">
-        <InputOTPControlled />
+        <SearchBox />
       </div>
     </>
   );
