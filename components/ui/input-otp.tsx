@@ -42,7 +42,8 @@ const InputOTPSlot = React.forwardRef<
       ref={ref}
       className={cn(
         "relative flex md:h-28 h-14 w-10 md:w-20 items-center justify-center border-y border-r border-input text-[2rem] md:text-[4rem] shadow-sm transition-all first:rounded-l-md first:border-l last:rounded-r-md",
-        isActive && "z-10 ring-1 ring-ring",
+        isActive &&
+          "z-10 ring-1 ring-ring outline-4 outline-accent-foreground outline",
         className
       )}
       {...props}
