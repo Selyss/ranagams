@@ -52,7 +52,6 @@ export function SearchBox() {
           <>Enter your anagram.</>
         ) : (
           <>
-            <h3>Possible anagrams:</h3>
             <ul>
               {Object.entries(value).map(([word, score]) => (
                 <li key={word}>
