@@ -20,7 +20,7 @@ export function InputOTPControlled() {
   const handleComplete = async (value: string) => {
     try {
       const response = await fetch(
-        `https://ranagams.vercel.app?string=${value}`
+        `https://ranagams-api.vercel.app?string=${value}`
       );
       const result = await response.json();
       setValue(result);
