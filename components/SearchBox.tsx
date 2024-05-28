@@ -10,6 +10,7 @@ import {
 } from "@/components/ui/input-otp";
 import { Separator } from "@/components/ui/separator";
 
+import { ScrollArea } from "@/components/ui/scroll-area";
 import { REGEXP_ONLY_CHARS } from "input-otp";
 
 type AnagramResponse = {
@@ -72,14 +73,15 @@ export function SearchBox() {
               {Object.keys(value).length} results found
             </h3>
             <Separator className="my-4" />
-
-            {groupAnagramsByLength(value).map(([length, words]) => (
-              <div key={length}>
-                <h4 className="font-semibold">{length} Letter Words</h4>
-                <p>{words.join(" ")}</p>
-                <div className="pb-2"></div>
-              </div>
-            ))}
+            <ScrollArea className="h-[300px]">
+              {groupAnagramsByLength(value).map(([length, words]) => (
+                <div key={length}>
+                  <h4 className="font-semibold">{length} Letter Words</h4>
+                  <p>{words.join(" ")}</p>
+                  <div className="pb-2"></div>
+                </div>
+              ))}
+            </ScrollArea>
           </Card>
         )}
       </div>
