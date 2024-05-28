@@ -47,11 +47,14 @@ export function SearchBox() {
           <InputOTPSlot index={5} />
         </InputOTPGroup>
       </InputOTP>
-      <div className="text-center text-sm">
+      <div className="text-center">
         {value === null ? (
           <>Enter your anagram.</>
         ) : (
           <>
+            <h3 className="text-center text-xl font-semibold leading-tight tracking-tighter lg:leading-[1.1] max-w-[330px] md:min-w-[540px] lg:motion-safe:opacity-100 lg:motion-safe:animate-fade-up">
+              {Object.keys(value).length} results found
+            </h3>
             <ul>
               {Object.entries(value).map(([word, score]) => (
                 <li key={word}>
