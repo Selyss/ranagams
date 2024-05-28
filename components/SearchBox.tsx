@@ -2,11 +2,13 @@
 
 import * as React from "react";
 
+import { Card } from "@/components/ui/card";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
 } from "@/components/ui/input-otp";
+import { Separator } from "@/components/ui/separator";
 
 import { REGEXP_ONLY_CHARS } from "input-otp";
 
@@ -29,6 +31,20 @@ export function SearchBox() {
     }
   };
 
+  const groupAnagramsByLength = (anagrams: AnagramResponse) => {
+    const grouped: { [length: number]: string[] } = {};
+
+    for (const word of Object.keys(anagrams)) {
+      const length = word.length;
+      if (!grouped[length]) {
+        grouped[length] = [];
+      }
+      grouped[length].push(word);
+    }
+
+    return Object.entries(grouped).sort((a, b) => Number(b[0]) - Number(a[0]));
+  };
+
   return (
     <div className="space-y-2 flex flex-col items-center">
       <InputOTP
@@ -47,22 +63,24 @@ export function SearchBox() {
           <InputOTPSlot index={5} />
         </InputOTPGroup>
       </InputOTP>
-      <div className="text-center">
+      <div className="text-center p-4">
         {value === null ? (
           <>Enter your anagram.</>
         ) : (
-          <>
-            <h3 className="text-center text-xl font-semibold leading-tight tracking-tighter lg:leading-[1.1] max-w-[330px] md:min-w-[540px] lg:motion-safe:opacity-100 lg:motion-safe:animate-fade-up">
+          <Card className="text-left p-6">
+            <h3 className="text-xl font-semibold leading-tight tracking-tighter lg:leading-[1.1] max-w-[330px] md:min-w-[540px] lg:motion-safe:opacity-100 lg:motion-safe:animate-fade-up">
               {Object.keys(value).length} results found
             </h3>
-            <ul>
-              {Object.entries(value).map(([word, score]) => (
-                <li key={word}>
-                  {word}: {score}
-                </li>
-              ))}
-            </ul>
-          </>
+            <Separator className="my-4" />
+
+            {groupAnagramsByLength(value).map(([length, words]) => (
+              <div key={length}>
+                <h4 className="font-semibold">{length} Letter Words</h4>
+                <p>{words.join(" ")}</p>
+                <div className="pb-2"></div>
+              </div>
+            ))}
+          </Card>
         )}
       </div>
     </div>
