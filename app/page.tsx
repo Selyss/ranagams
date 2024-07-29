@@ -11,8 +11,8 @@ export default function Home() {
           </h2>
           <p className="text-xl text-muted-foreground text-center">
             Tired of losing to your friends on Anagrams? Just enter your letters
-            and you'll get an ordered list of all possible anagrams! Fast and
-            easy, you'll never lose again!
+            and you&apos;ll get an ordered list of all possible anagrams! Fast and
+            easy, you&apos;ll never lose again!
           </p>
           <SearchBox />
         </section>
