@@ -54,6 +54,7 @@ export function SearchBox() {
         spellCheck={false}
         autoFocus={true}
         onComplete={handleComplete}
+        inputMode="text"
       >
         <InputOTPGroup>
           <InputOTPSlot index={0} />
@@ -64,7 +65,7 @@ export function SearchBox() {
           <InputOTPSlot index={5} />
         </InputOTPGroup>
       </InputOTP>
-      <div className="text-center p-4" inputMode="text">
+      <div className="text-center p-4">
         {value === null ? (
           <>Enter your anagram.</>
         ) : (
