@@ -64,7 +64,7 @@ export function SearchBox() {
           <InputOTPSlot index={5} />
         </InputOTPGroup>
       </InputOTP>
-      <div className="text-center p-4">
+      <div className="text-center p-4" inputMode="text">
         {value === null ? (
           <>Enter your anagram.</>
         ) : (
